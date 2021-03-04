@@ -1,0 +1,111 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+h2 {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid orange;
+    border-radius: 20px;
+    background-color: antiquewhite;
+    margin: auto;
+}
+
+img {
+    width: auto;
+    max-width: 202px;
+}
+
+ul {
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #e1dcdc;
+}
+
+li {
+    margin-left: 25px;
+}
+
+#bekezdes {
+    padding: 20px;
+    text-align: left;
+    border-radius: 20px;
+    background-color: #e1dcdc;
+}
+
+#datum {
+    color: dodgerblue;
+}
+
+span {
+    font-style: italic;
+    color: chocolate;
+}
+
+.lista {
+    font-size: 20px;
+    color: chocolate;
+}
+
+a {
+    text-decoration: none;
+    background-color: orange;
+    color: white;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+    a:hover {
+        background-color: chocolate;
+    }
+
+#tanulmanyok {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+@media screen and (min-width: 800px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        max-width: 1500px;
+        margin: auto;
+    }
+
+    .lista {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #olv {
+        order: -1;
+    }
+
+    #bemut,
+    #munkat {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #bemut {
+        flex: 1 1 50%;
+    }
+
+    #munkat {
+        flex: 1 1 auto;
+        margin: 1px;
+    }
+
+    #kezdes {
+        display: flex;
+    }
+
+    h2 {
+        width: 100%;
+        margin: 1px;
+    }
+}
