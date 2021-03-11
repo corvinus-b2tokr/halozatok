@@ -30,7 +30,7 @@ namespace HajosTeszt
 
             DefaultFilesOptions options = new DefaultFilesOptions();
             options.DefaultFileNames.Clear();
-            options.DefaultFileNames.Add("cv2.html");
+            options.DefaultFileNames.Add("hajo.html");
             app.UseDefaultFiles(options);
             app.UseStaticFiles();
 
