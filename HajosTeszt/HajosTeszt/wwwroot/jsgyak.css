@@ -1,0 +1,107 @@
+﻿body {
+}
+
+#pascal {
+    display: flex;
+    flex-direction: column;
+}
+
+.sor {
+    display: flex;
+    flex-direction: row;
+}
+
+.elem {
+    height: 30px;
+    width: 30px;
+}
+
+.sor1{
+    margin-left: 200px;
+}
+
+.sor2 {
+    margin-left: 180px;
+}
+
+.sor3 {
+    margin-left: 160px;
+}
+
+.sor4 {
+    margin-left: 140px;
+}
+
+.sor5 {
+    margin-left: 120px;
+}
+
+.sor6 {
+    margin-left: 100px;
+}
+
+.sor7 {
+    margin-left: 80px;
+}
+
+.sor8 {
+    margin-left: 60px;
+}
+
+.sor9 {
+    margin-left: 40px;
+}
+
+.sor10 {
+    margin-left: 20px;
+}
+
+#szamok {
+    display: flex;
+    flex-direction: row;
+}
+
+div {
+    padding: 5px;
+}
+
+.szam1 {
+    background-color: #FFFEEE;
+}
+
+.szam2 {
+    background-color: #FFE5CC;
+}
+
+.szam3 {
+    background-color: #FFCC99;
+}
+
+.szam4 {
+    background-color: #FFB266;
+}
+
+.szam5 {
+    background-color: #FF9933;
+}
+
+.szam6 {
+    background-color: #FF8000;
+}
+
+.szam7 {
+    background-color: #CC6600;
+}
+
+.szam8 {
+    background-color: #994C00;
+}
+
+.szam9 {
+    background-color: #663300;
+}
+
+.szam10 {
+    color: white;
+    background-color: #331900;
+}
