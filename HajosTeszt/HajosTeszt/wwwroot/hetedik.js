@@ -3,6 +3,37 @@ var sorszam;
 sorszam = 1;
 var helyesValasz;
 
+function kérdésMegjelenítés(kérdés) {
+    console.log(kérdés);
+    document.getElementById("kerdes_szoveg").innerText = kérdés.questionText
+    document.getElementById("valasz1").innerText = kérdés.answer1
+    document.getElementById("valasz2").innerText = kérdés.answer2
+    document.getElementById("valasz3").innerText = kérdés.answer3
+    document.getElementById("kep").src = "https://szoft1.comeback.hu/hajo/" + kérdés.image;
+}
+
+function kérdésBetöltés(id) {
+    fetch(`/questions/${id}`)
+        .then(response => {
+            if (!response.ok) {
+                console.error(`Hibás válasz: ${response.status}`)
+            }
+            else {
+                return response.json()
+            }
+        })
+        .then(data => kérdésMegjelenítés(data));
+} 
+
+function válaszfeldolgozás(válasz) {
+    if (!válasz.ok) {
+        console.error(`Hibás válasz: ${response.status}`)
+    }
+    else {
+        return válasz.json()
+    }
+}
+
 function letoltes() {
     fetch('/questions.json')
         .then(response => response.json())
@@ -88,5 +119,9 @@ function kerdesMegjelenites(kerdes) {
 }
 
 window.onload = function () {
-    letoltes();
+    //letoltes();
+    fetch('/questions/1')
+        .then(response => response.json())
+        .then(data => kérdésMegjelenítés(data)
+        );
 }
