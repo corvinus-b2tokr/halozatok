@@ -4,23 +4,23 @@
     <meta charset="utf-8" />
     <title></title>
     <link href="hajo.css" rel="stylesheet" />
-    <script src="hetedik.js"></script>
+    <script src="tizedik.js"></script>
 </head>
 <body>
-    <div id="külső">
+    <div id="kulso">
         <div id="kerdes_szoveg"></div>
 
-        <div id="középső">
-            <div id="válaszok">
-                <div id="valasz1" class="kerdes kattinthato" onclick="valaszt1()"></div>
-                <div id="valasz2" class="kerdes kattinthato" onclick="valaszt2()"></div>
-                <div id="valasz3" class="kerdes kattinthato" onclick="valaszt3()"></div>
+        <div id="kozepso">
+            <div id="valaszok">
+                <div id="valasz1" onclick="valaszt1()" class="kerdes kattinthato">Válasz 1</div>
+                <div id="valasz2" onclick="valaszt2()" class="kerdes kattinthato jo">Válasz 2</div>
+                <div id="valasz3" onclick="valaszt3()" class="kerdes kattinthato rossz">Válasz 3</div>
             </div>
             <div id="kep"></div>
         </div>
-        <div id="vezérlő">
-            <div class="gomb1 kattinthato" onclick="vissza()">Vissza</div>
-            <div class="gomb2 kattinthato" onclick="elore()">Előre</div>
+        <div id="vezerlo">
+            <div id="vissza_gomb" class="gomb kattinthato">Vissza</div>
+            <div id="elore_gomb"class="gomb kattinthato">Előre</div>
         </div>
     </div>
 </body>

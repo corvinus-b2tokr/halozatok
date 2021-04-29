@@ -10,7 +10,7 @@ div {
     padding: 10px;
 }
 
-#külső {
+#kulso {
     height: 100%;
     flex-direction: column;
     display: flex;
@@ -23,18 +23,18 @@ div {
     color: white;
 }
 
-#középső {
+#kozepso {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
 }
 
-#válaszok {
+#valaszok {
     flex-grow: 1;
     flex-shrink: 1;
 }
 
-#vezérlő {
+#vezerlo {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -45,13 +45,7 @@ div {
     flex-shrink: 1;
 }
 
-.gomb1 {
-    padding: 20px;
-    width: 80px;
-    border: 5px solid darkgrey;
-}
-
-.gomb2 {
+.gomb {
     padding: 20px;
     width: 80px;
     border: 5px solid darkgrey;
@@ -92,4 +86,8 @@ div {
     background-color: red;
     color: black;
     cursor: default;
+}
+
+.rejtett{
+    display: none;
 }
