@@ -9,7 +9,6 @@ var nextQuestion = 1;
 var timeoutHandler;
 
 function init() {
-    window.localStorage.getItem("list");
     for (var i = 0; i < questionsInHotList; i++) {
         let q = {
             question: {},
@@ -18,9 +17,28 @@ function init() {
         hotList[i] = q;
     }
 
-    for (var i = 0; i < questionsInHotList; i++) {
-        kerdesBetoltes(nextQuestion, i);
-        nextQuestion++;
+    fetch("questions/count")
+        .then(result => result.text())
+        .then(n => { numberOfQuestions = parseInt(n) })
+
+    if (localStorage.getItem("hotList")) {
+        hotList = JSON.parse(localStorage.getItem("hotList"));
+    }
+    if (localStorage.getItem("displayedQuestion")) {
+        displayedQuestion = parseInt(localStorage.getItem("displayedQuestion"));
+    }
+    if (localStorage.getItem("nextQuestion")) {
+        nextQuestion = parseInt(localStorage.getItem("nextQuestion"));
+    }
+
+    if (nextQuestion <= 3) {
+        for (var i = 0; i < questionsInHotList; i++) {
+            kerdesBetoltes(nextQuestion, i);
+            nextQuestion++;
+        }
+    } else {
+        console.log("LocalStorage használatban..");
+        kerdesMegjelenites();
     }
 }
 
@@ -62,10 +80,10 @@ function kerdesMegjelenites() {
     questionId = kerdes.questionId;
     if (kerdes.image) {
         document.getElementById("kep").src = "https://szoft1.comeback.hu/hajo/" + kerdes.image;
-        document.getElementById("kep").classList.remove("rejtett")
+        document.getElementById("kep").style.display = "block";
     }
     else {
-        document.getElementById("kep").classList.add("rejtett")
+        document.getElementById("kep").style.display = "none";
     }
 
     document.getElementById("valasz1").classList.remove("jo", "rossz");
@@ -115,9 +133,13 @@ valaszt1 = function () {
     if (helyesValasz == 1) {
         document.getElementById("valasz1").classList.toggle("jo");
         hotList[displayedQuestion].goodAnswers++;
-        if (hotList[displayedQuestion].goodAnswers == 3) {
-            kerdesBetoltes(nextQuestion, displayedQuestion);
-            nextQuestion++;
+        if (hotList[displayedQuestion].goodAnswers >= 3) {
+            if (nextQuestion != numberOfQuestions) {
+                kerdesBetoltes(nextQuestion, displayedQuestion);
+                nextQuestion++;
+            } else {
+                console.log("Kérdéslista végére értünk");
+            }
         }
     }
     else {
@@ -129,16 +151,22 @@ valaszt1 = function () {
     document.getElementById("valasz3").style.pointerEvents = "none";
 
     timeoutHandler = setTimeout(elore, 3000);
-    window.localStorage.setItem("list", JSON.stringify(hotList));
+    localStorage.setItem("hotList", JSON.stringify(hotList));
+    localStorage.setItem("displayedQuestion", displayedQuestion);
+    localStorage.setItem("nextQuestion", nextQuestion);
 }
 
 valaszt2 = function () {
     if (helyesValasz == 2) {
         document.getElementById("valasz2").classList.toggle("jo");
         hotList[displayedQuestion].goodAnswers++;
-        if (hotList[displayedQuestion].goodAnswers == 3) {
-            kerdesBetoltes(nextQuestion, displayedQuestion);
-            nextQuestion++;
+        if (hotList[displayedQuestion].goodAnswers >= 3) {
+            if (nextQuestion != numberOfQuestions) {
+                kerdesBetoltes(nextQuestion, displayedQuestion);
+                nextQuestion++;
+            } else {
+                console.log("Kérdéslista végére értünk");
+            }
         }
     }
     else {
@@ -150,16 +178,22 @@ valaszt2 = function () {
     document.getElementById("valasz3").style.pointerEvents = "none";
 
     timeoutHandler = setTimeout(elore, 3000);
-    window.localStorage.setItem("list", JSON.stringify(hotList));
+    localStorage.setItem("hotList", JSON.stringify(hotList));
+    localStorage.setItem("displayedQuestion", displayedQuestion);
+    localStorage.setItem("nextQuestion", nextQuestion);
 }
 
 valaszt3 = function () {
     if (helyesValasz == 3) {
         document.getElementById("valasz3").classList.toggle("jo");
         hotList[displayedQuestion].goodAnswers++;
-        if (hotList[displayedQuestion].goodAnswers == 3) {
-            kerdesBetoltes(nextQuestion, displayedQuestion);
-            nextQuestion++;
+        if (hotList[displayedQuestion].goodAnswers >= 3) {
+            if (nextQuestion != numberOfQuestions) {
+                kerdesBetoltes(nextQuestion, displayedQuestion);
+                nextQuestion++;
+            } else {
+                console.log("Kérdéslista végére értünk");
+            }
         }
     }
     else {
@@ -171,7 +205,9 @@ valaszt3 = function () {
     document.getElementById("valasz3").style.pointerEvents = "none";
 
     timeoutHandler = setTimeout(elore, 3000);
-    window.localStorage.setItem("list", JSON.stringify(hotList));
+    localStorage.setItem("hotList", JSON.stringify(hotList));
+    localStorage.setItem("displayedQuestion", displayedQuestion);
+    localStorage.setItem("nextQuestion", nextQuestion);
 }
 
 window.onload = function (e) {
