@@ -1,0 +1,42 @@
+﻿html, body {
+    height: 100%;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    background-color: gainsboro;
+    font-weight: bold;
+}
+
+#szoveg {
+    background-color: crimson;
+    color: white;
+}
+
+div {
+    margin: 10px;
+    padding: 10px;
+}
+
+button{
+    margin-left: 20px;
+}
+
+.kattinthato {
+    background-color: gainsboro;
+}
+
+.kattinthato:hover {
+        background-color: darkorange;
+        color: white;
+        cursor: pointer;
+}
+
+.gomb {
+    padding: 20px;
+    width: 80px;
+    border: 5px solid darkgrey;
+}
+
+#vezerlo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
