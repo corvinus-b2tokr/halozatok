@@ -13,7 +13,8 @@
         </div>
         <button id="addButton">Új vicc felvétele</button>
     </form>
-    <div id="szoveg">Csak console-ból működik az init2 fgv., ami betölti a vicceket :/</div>
+    <div id="vicc_listazas" class="gomb kattinthato">Nézzük a vicceket!</div>
+    <div id="szoveg"></div>
     <div id="vezerlo">
         <div id="vissza_gomb" class="gomb kattinthato">Vissza</div>
         <div id="elore_gomb" class="gomb kattinthato">Előre</div>
@@ -90,6 +91,14 @@
             viccMegjelenites();
         }
 
+        listazas = function () {
+            init2();
+            console.log("Viccek listázva!");
+            document.getElementById("vicc_listazas").hidden = "true";
+            document.getElementById("vissza_gomb").style.pointerEvents = "auto";
+            document.getElementById("elore_gomb").style.pointerEvents = "auto";
+        }
+
         document.getElementById("addButton").addEventListener("click", () => {
 
             let data = {
@@ -118,6 +127,9 @@
             console.log("Oldal betöltve...");
             document.getElementById("elore_gomb").onclick = elore;
             document.getElementById("vissza_gomb").onclick = vissza;
+            document.getElementById("vicc_listazas").onclick = listazas;
+            document.getElementById("vissza_gomb").style.pointerEvents = "none";
+            document.getElementById("elore_gomb").style.pointerEvents = "none";
         }
     </script>
 </body>

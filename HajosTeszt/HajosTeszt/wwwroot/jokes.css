@@ -35,6 +35,10 @@ button{
     border: 5px solid darkgrey;
 }
 
+#vicc_listazas{
+    width: 150px;
+}
+
 #vezerlo {
     display: flex;
     flex-direction: row;
